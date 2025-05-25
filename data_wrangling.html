@@ -7517,7 +7517,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Data-Wrangling">Data Wrangling<a class="anchor-link" href="#Data-Wrangling">¶</a></h1><p>BIT-446 assigment<br/>
+<h1 id="Data-Wrangling">Data Wrangling<a class="anchor-link" href="#Data-Wrangling">¶</a></h1><p>BIT-446 Topic 1
 Noah MacGillivray</p>
 </div>
 </div>
@@ -7538,7 +7538,7 @@ Noah MacGillivray</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> 
@@ -7566,12 +7566,12 @@ Noah MacGillivray</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">churn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'BIT-446-RS-T1-Churn-1.xlsx'</span><span class="p">)</span> <span class="c1"># reads in the excel file </span>
 <span class="c1">#print(churn)</span>
-<span class="n">churn</span><span class="p">[</span><span class="s1">'ID'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">churn</span><span class="p">))</span>
+<span class="n">churn</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'ID'</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">churn</span><span class="p">)))</span> <span class="c1"># pla</span>
 </pre></div>
 </div>
 </div>
@@ -7584,7 +7584,7 @@ Noah MacGillivray</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Header-information-for-dataframe:-name-and-data-types">Header information for dataframe: name and data types<a class="anchor-link" href="#Header-information-for-dataframe:-name-and-data-types">¶</a></h2>
+<h2 id="Header-information-for-dataframe">Header information for dataframe<a class="anchor-link" href="#Header-information-for-dataframe">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7593,10 +7593,10 @@ Noah MacGillivray</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">churn</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">churn</span><span class="o">.</span><span class="n">info</span><span class="p">()</span> <span class="c1"># displays header names and column stats </span>
 </pre></div>
 </div>
 </div>
@@ -7614,30 +7614,71 @@ RangeIndex: 3333 entries, 0 to 3332
 Data columns (total 22 columns):
  #   Column          Non-Null Count  Dtype  
 ---  ------          --------------  -----  
- 0   State           3333 non-null   object 
- 1   Account Length  3333 non-null   int64  
- 2   Area Code       3333 non-null   int64  
- 3   Phone           3333 non-null   object 
- 4   Int'l Plan      3333 non-null   object 
- 5   VMail Plan      3333 non-null   object 
- 6   VMail Message   3331 non-null   float64
- 7   Day Mins        3332 non-null   float64
- 8   Day Calls       3332 non-null   float64
- 9   Day Charge      3329 non-null   float64
- 10  Eve Mins        3333 non-null   float64
- 11  Eve Calls       3330 non-null   float64
- 12  Eve Charge      3332 non-null   float64
- 13  Night Mins      3331 non-null   float64
- 14  Night Calls     3331 non-null   float64
- 15  Night Charge    3333 non-null   float64
- 16  Intl Mins       3331 non-null   float64
- 17  Intl Calls      3333 non-null   int64  
- 18  Intl Charge     3333 non-null   float64
- 19  CustServ Calls  3333 non-null   int64  
- 20  Churn?          3333 non-null   object 
- 21  ID              3333 non-null   int64  
+ 0   ID              3333 non-null   int64  
+ 1   State           3333 non-null   object 
+ 2   Account Length  3333 non-null   int64  
+ 3   Area Code       3333 non-null   int64  
+ 4   Phone           3333 non-null   object 
+ 5   Int'l Plan      3333 non-null   object 
+ 6   VMail Plan      3333 non-null   object 
+ 7   VMail Message   3331 non-null   float64
+ 8   Day Mins        3332 non-null   float64
+ 9   Day Calls       3332 non-null   float64
+ 10  Day Charge      3329 non-null   float64
+ 11  Eve Mins        3333 non-null   float64
+ 12  Eve Calls       3330 non-null   float64
+ 13  Eve Charge      3332 non-null   float64
+ 14  Night Mins      3331 non-null   float64
+ 15  Night Calls     3331 non-null   float64
+ 16  Night Charge    3333 non-null   float64
+ 17  Intl Mins       3331 non-null   float64
+ 18  Intl Calls      3333 non-null   int64  
+ 19  Intl Charge     3333 non-null   float64
+ 20  CustServ Calls  3333 non-null   int64  
+ 21  Churn?          3333 non-null   object 
 dtypes: float64(12), int64(5), object(5)
 memory usage: 573.0+ KB
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d9613710">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Change-columns-to-lowercase">Change columns to lowercase<a class="anchor-link" href="#Change-columns-to-lowercase">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c795fd01">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Before:"</span><span class="p">,</span> <span class="n">churn</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">churn</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">churn</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After:"</span><span class="p">,</span> <span class="n">churn</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Before: ['ID', 'State', 'Account Length', 'Area Code', 'Phone', "Int'l Plan", 'VMail Plan', 'VMail Message', 'Day Mins', 'Day Calls', 'Day Charge', 'Eve Mins', 'Eve Calls', 'Eve Charge', 'Night Mins', 'Night Calls', 'Night Charge', 'Intl Mins', 'Intl Calls', 'Intl Charge', 'CustServ Calls', 'Churn?']
+After: ['id', 'state', 'account length', 'area code', 'phone', "int'l plan", 'vmail plan', 'vmail message', 'day mins', 'day calls', 'day charge', 'eve mins', 'eve calls', 'eve charge', 'night mins', 'night calls', 'night charge', 'intl mins', 'intl calls', 'intl charge', 'custserv calls', 'churn?']
 </pre>
 </div>
 </div>
